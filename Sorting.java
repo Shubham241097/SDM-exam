@@ -36,6 +36,25 @@ public class Sorting{
         }
     }
 
+    public static void selectionsort(int[] arr){
+        int n =  arr.length;
+        for(int i =0; i < n-1 ; i++){
+            int minIndex = i;
+            for(int j = i + 1; j < n ; j++ ){
+                switch(arr[j] < arr[minIndex]){
+                    case true:
+                    minIndex = j;
+                    break;
+                }
+            }
+
+            int temp = arr[minIndex];
+            arr[minIndex] = arr[i];
+            arr[i] = temp;
+        }
+
+    }
+
     public static void main(){
 
         Sorting sort = new Sorting();
@@ -45,6 +64,9 @@ public class Sorting{
 
         int arr1[] = [10,20,30,50,40];
         sort.insertionsort(arr1);
+
+        int arr2[] = [20,10,30,50,40];
+        sort.selectionsort(arr2);
 
     }
 }
